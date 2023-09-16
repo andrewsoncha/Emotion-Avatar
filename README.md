@@ -4,7 +4,7 @@
 # Basic Demonstration
 https://youtu.be/HJ0vwQLxtv0
 
-# Installation
+# Library Installation
  You must install Keras, OpenCV, Numpy and Matplotlib in order to use this tool. Install using pip like:
  ```
 pip install tensorflow
