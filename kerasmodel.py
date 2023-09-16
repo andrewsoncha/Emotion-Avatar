@@ -44,9 +44,6 @@ def plot_model_history(model_history):
     fig.savefig('plot.png')
     plt.show()
 
-# Define data generators
-train_dir = 'data/train'
-val_dir = 'data/test'
 
 num_train = 28709
 num_val = 7178
@@ -98,7 +95,15 @@ cv2.ocl.setUseOpenCL(False)
 # dictionary which assigns each label an emotion (alphabetical order)
 emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
-avatarImgPaths = ['angry.jpg', 'disgusted.jpg', 'fearful.jpg', 'happy.jpg', 'neutral.jpg', 'sad.jpg', 'surprised.jpg']
+#avatarImgPaths = ['angry.jpg', 'disgusted.jpg', 'fearful.jpg', 'happy.jpg', 'neutral.jpg', 'sad.jpg', 'surprised.jpg']
+avatarImgPaths = []
+file = open('imagePaths.txt')
+for i in range(7):
+    line = file.readline()
+    avatarImgPaths.append(line[:len(line)-1])
+
+print('avatarImgPaths:',avatarImgPaths)
+    
 avatarImgs = [cv2.imread(i, cv2.IMREAD_COLOR) for i in avatarImgPaths]
 
 # start the webcam feed
@@ -117,6 +122,7 @@ while True:
         prediction = model.predict(cropped_img)
         maxindex = int(np.argmax(prediction))
         cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+        print(emotion_dict[maxindex])
         cv2.imshow('avatarImg', avatarImgs[maxindex])
 
     # show the output frame

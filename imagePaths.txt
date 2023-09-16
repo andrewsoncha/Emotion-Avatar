@@ -1,0 +1,7 @@
+angry.jpg
+disgusted.jpg
+fearful.jpg
+happy.jpg
+neutral.jpg
+sad.jpg
+surprised.jpg
