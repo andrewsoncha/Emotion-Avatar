@@ -1,6 +1,9 @@
 # Emotion Avatar
  A simple tool made from Python and Keras. Performs Simple emotion detection from webcam and displays the correct image
 
+# Basic Demonstration
+https://youtu.be/HJ0vwQLxtv0
+
 # Installation
  You must install Keras, OpenCV, Numpy and Matplotlib in order to use this tool. Install using pip like:
  ```
